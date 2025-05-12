@@ -1,0 +1,548 @@
+---
+title: "Small Business Marketing | Spark Social Media | Orlando, FL"
+description: "Meta description for the page"
+preloadImg: "/assets/images/home-landing.png"
+permalink: "/"
+tags: "sitemap" # Sitemap will use all pages in content/, due to content.json. As index.html is not included in content/ we need to manually add the sitemap tag to this page (only).
+eleventyNavigation:
+    key: Home
+    order: 100
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/local.css" />
+    <link rel="stylesheet" href="/assets/css/critical.css" />
+
+    <!-- Script for Netlify Identity -->
+    <script
+        defer
+        src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+    ></script>
+    <script defer>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", (user) => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+
+    <!-- JSON Schema Markup -->
+    <!-- prettier-ignore-start -->
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "LocalBusiness",
+            "name": "{{ client.name }}",
+            {% if preloadImg %}"image": "{{ preloadImg }}",{% endif %}
+            {% if client.phoneFormatted %}"telephone": "{{ client.phoneFormatted }}",{% endif %}
+            {% if client.email %}"email": "{{ client.email }}",{% endif %}
+            {% if client.address %}
+                "address": {
+                    "@type": "PostalAddress"{% if client.address.lineOne %},
+                        "streetAddress": "{{ client.address.lineOne }}{% if client.address.lineTwo %}, {{ client.address.lineTwo }}{% endif %}"
+                    {% endif %}
+                    {% if client.address.city %},
+                        "addressLocality": "{{ client.address.city }}"
+                    {% endif %}
+                    {% if client.address.state %},
+                        "addressRegion": "{{ client.address.state }}"
+                    {% endif %}
+                    {% if client.address.zip %},
+                        "postalCode": "{{ client.address.zip }}"
+                    {% endif %}
+                    {% if client.address.country %},
+                        "addressCountry": "{{ client.address.country }}"
+                    {% endif %}
+                },
+            {% endif %}
+            {% if client.domain and page.url %}"url": "{{ client.domain }}{{ page.url }}",{% endif %}
+            {% if client.socials %}
+                "sameAs": [{% for platform, url in client.socials %}
+                        {% if not loop.first %},{% endif %}
+                        "{{ url }}"
+                    {% endfor %}]
+            {% endif %}
+        }
+    </script>
+    <!-- prettier-ignore-end -->
+{% endblock %}
+
+{% block body %}
+    <!-- ============================================ -->
+    <!--                    Hero                      -->
+    <!-- ============================================ -->
+
+    <section id="hero">
+        <div class="cs-container">
+            <div class="cs-flex-group">
+                <span class="cs-topper">
+                    Unlock the Digital Edge for Your Small Business</span
+                >
+                <h1 class="cs-title ">
+                    Proven Local Marketing That Drives Results
+                </h1>
+                <p class="cs-text">
+                    Get found first—our local marketing strategies put your
+                    business where customers are searching
+                </p>
+                <a href="/about" class="cs-button-solid">Explore More</a>
+                <a href="/contact" class="cs-button-transparent">
+                
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+
+        <video class="cs-video" autoplay loop muted playsinline loading="eager">
+            <source src="/assets/videos/v1.mp4" type="video/mp4" />
+        </video>
+
+        <div class="video-overlay"></div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--                  Services                    -->
+    <!-- ============================================ -->
+
+    <section
+        id="services"
+        class="services "
+        style="border-top: 0.375em solid var(--primary);"
+    >
+        <!-- Get Icons From flaticon.com -->
+        <div class="card">
+            <picture>
+                <img
+                    aria-hidden="true"
+                    decoding="async"
+                    src="/assets/svgs/service1.svg"
+                    alt="appliance"
+                    width="48"
+                    height="48"
+                />
+            </picture>
+            <h2>Web Design</h2>
+            <p>
+                Custom-built, mobile-friendly websites designed to convert
+                visitors into customers through modern design and seamless
+                functionality.
+            </p>
+        </div>
+        <div class="card">
+            <picture>
+                <img
+                    aria-hidden="true"
+                    decoding="async"
+                    src="/assets/svgs/service2.svg"
+                    alt="appliance"
+                    width="48"
+                    height="48"
+                />
+            </picture>
+            <h2>Digital Ads</h2>
+            <p>
+                Drive targeted local customers to your business through expertly
+                managed Google Ads and Meta advertising campaigns.
+            </p>
+        </div>
+        <div class="card">
+            <picture>
+                <img
+                    aria-hidden="true"
+                    decoding="async"
+                    src="/assets/svgs/service3.svg"
+                    alt="appliance"
+                    width="48"
+                    height="48"
+                />
+            </picture>
+            <h2>Local SEO</h2>
+            <p>
+                Boost your Google rankings and attract more local customers
+                through strategic optimization of your online presence.
+            </p>
+        </div>
+    </section>
+    <br />
+
+    <!-- ============================================ -->
+    <!--                 Side By Side                 -->
+    <!-- ============================================ -->
+
+    <section id="sbs">
+        <div class="cs-container">
+            <!-- Left Image Section -->
+            <div class="cs-left">
+                <picture class="cs-picture cs-picture1">
+                    <source
+                        media="(max-width: 600px)"
+                        srcset="/assets/images/team-collaboration.jpg"
+                    />
+                    <source
+                        media="(min-width: 601px)"
+                        srcset="/assets/images/team-collaboration.jpg"
+                    />
+                    <img
+                        aria-hidden="true"
+                        decoding="async"
+                        src="/assets/images/team-collaboration.jpg"
+                        alt="cabinets"
+                        loading="lazy"
+                        width="400"
+                        height="563"
+                    />
+                </picture>
+                <picture class="cs-picture cs-picture2">
+                    <source
+                        media="(max-width: 600px)"
+                        srcset="/assets/images/home-sbs-01.jpeg"
+                    />
+                    <source
+                        media="(min-width: 601px)"
+                        srcset="/assets/images/home-sbs-01.jpeg"
+                    />
+                    <img
+                        aria-hidden="true"
+                        decoding="async"
+                        src="/assets/images/home-sbs-01.jpeg"
+                        alt="house"
+                        loading="lazy"
+                        width="400"
+                        height="563"
+                    />
+                </picture>
+            </div>
+            <!-- Right Content Section-->
+            <div class="cs-right">
+                <span class="cs-topper">Our Story & Mission</span>
+                <h2 class="cs-title">Crafting Local Success</h2>
+                <p class="cs-text">
+                    At Spark Social, we empower local businesses with marketing
+                    strategies designed to drive growth and engagement. As
+                    experts in the local domain, we understand the unique
+                    challenges and opportunities that small businesses face in
+                    today’s competitive landscape.
+                </p>
+                <p class="cs-text">
+                    From creating data-driven marketing campaigns to developing
+                    hand-coded, SEO-friendly websites tailored to your brand,
+                    our goal is simple: to help you connect with your audience
+                    and achieve sustainable success. Trust us to be your
+                    dedicated partner in building a thriving business while you
+                    focus on what you do best.
+                </p>
+                <div class="cs-flex-group">
+                    <p class="cs-flex-p">
+                        With our expertise in digital marketing, we craft
+                        strategies that not only elevate your brand but also
+                        drive measurable results you can trust. Focus on what
+                        you do best—we’ll take care of the rest.
+                    </p>
+                    <span class="cs-name">Juwan Hollingsworth</span>
+                    <span class="cs-job">CEO-Founder</span>
+                    <img
+                        class="cs-quote-icon"
+                        loading="lazy"
+                        decoding="async"
+                        src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/quote-white.svg"
+                        alt="gavel"
+                        width="136"
+                        height="77"
+                    />
+                </div>
+                <a href="/about" class="cs-button-solid">More About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--            Extra Content To Rank             -->
+    <!-- ============================================ -->
+
+    <section id="sbs-r">
+        <div class="cs-container">
+            <!-- Left Image Section -->
+            <div class="cs-left">
+                <picture class="cs-picture cs-picture1">
+                    <source
+                        media="(max-width: 600px)"
+                        srcset="/assets/images/ai-blog2.jpg"
+                    />
+                    <source
+                        media="(min-width: 601px)"
+                        srcset="/assets/images/ai-blog2.jpg"
+                    />
+                    <img
+                        aria-hidden="true"
+                        decoding="async"
+                        src="/assets/images/ai-blog2.jpg"
+                        alt="house"
+                        loading="lazy"
+                        width="400"
+                        height="560"
+                    />
+                </picture>
+                <picture class="cs-picture cs-picture2">
+                    <source
+                        media="(max-width: 600px)"
+                        srcset="/assets/images/home-sbs-02.jpeg"
+                    />
+                    <source
+                        media="(min-width: 601px)"
+                        srcset="/assets/images/home-sbs-02.jpeg"
+                    />
+                    <img
+                        aria-hidden="true"
+                        decoding="async"
+                        src="/assets/images/home-sbs-02.jpeg"
+                        alt="cabinets"
+                        loading="lazy"
+                        width="400"
+                        height="560"
+                    />
+                </picture>
+            </div>
+            <!-- Right Content Section-->
+            <div class="cs-right">
+                <span class="cs-topper">Small Business Growth Tips</span>
+                <h2 class="cs-title">
+                    Business Success Strategy Leveraging AI Tools for Small
+                    Business Marketing
+                </h2>
+                <p class="cs-text">
+                    Small businesses are discovering unprecedented opportunities
+                    through AI-powered marketing tools. From automated customer
+                    service to personalized email campaigns, artificial
+                    intelligence is leveling the playing field, allowing local
+                    businesses to compete with larger corporations while
+                    maintaining their unique personal touch. The integration of
+                    AI into small business marketing isn't just about automation
+                    – it's about enhancement.
+                </p>
+                <p class="cs-text">
+                    Smart tools can now analyze customer behavior patterns,
+                    predict buying trends, and optimize marketing campaigns in
+                    real-time. This technology, once reserved for
+                    enterprise-level companies, is now accessible to local
+                    businesses. Recent data shows that small businesses using
+                    AI-powered marketing tools are experiencing up to 50%
+                    reduction in customer acquisition costs while seeing a 30%
+                    increase in customer retention rates.
+                </p>
+                <a href="/blog" class="cs-button-solid">Read our Blog</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+<!--                   Gallery                    -->
+<!-- ============================================ -->
+
+<section id="gallery-1374">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Our Portfolio</span>
+            <h2 class="cs-title">Explore Our Recently Completed Work</h2>
+            <p class="cs-text">
+                We specialize in small business web design and development for clients anywhere in the US. Every line of code is written by hand to ensure the best performance, which helps bring in more customers to your site and bring more revenue to your business.
+            </p>
+        </div>
+        <ul class="cs-image-group">
+            <!-- Card 1 -->
+            <li class="cs-item">
+                <a href="/" class="cs-link">
+                    <picture class="cs-picture">
+                        <source media="(max-width: 600px)" srcset="assets/images/hp-dental-website.png">
+                        <source media="(min-width: 601px)" srcset="assets/images/hp-dental-website.png">
+                        <img loading="lazy" decoding="async" src="assets/images/hp-dental-website.png" alt="fancy house" width="346" height="346">
+                    </picture>
+                    <div class="cs-item-text">
+                        <div class="cs-flex">
+                            <h3 class="cs-h3">Voyage</h3>
+                            <span class="cs-desc">A complete Travel Agency App UI</span>
+                        </div>
+                        <picture class="cs-icon-wrapper">
+                            <img class="cs-icon" decoding="async"
+                                            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/agency-arrow-upper-right.svg"
+                                            alt="arrow" width="413" height="374" aria-hidden="true">
+                        </picture>
+                    </div>
+                </a>
+            </li>
+            <!-- Card 2 -->
+            <li class="cs-item">
+                <a href="/" class="cs-link">
+                    <picture class="cs-picture">
+                        <source media="(max-width: 600px)" srcset="assets/images/hp-home-website.png">
+                        <source media="(min-width: 601px)" srcset="assets/images/hp-home-website.png">
+                        <img loading="lazy" decoding="async" src="assets/images/hp-home-website.png" alt="modern house" width="346" height="346">
+                    </picture>
+                    <div class="cs-item-text">
+                        <div class="cs-flex">
+                            <h3 class="cs-h3">Matcha and Co</h3>
+                            <span class="cs-desc">A Tea Brand E-commerce Website</span>
+                        </div>
+                        <picture class="cs-icon-wrapper">
+                            <img class="cs-icon" decoding="async"
+                                            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/agency-arrow-upper-right.svg"
+                                            alt="arrow" width="413" height="374" aria-hidden="true">
+                        </picture>
+                    </div>
+                </a>
+            </li>
+            <!-- Card 3 -->
+            <li class="cs-item">
+                <a href="/" class="cs-link">
+                    <picture class="cs-picture">
+                        <source media="(max-width: 600px)" srcset="assets/images/hp-law-website.png">
+                        <source media="(min-width: 601px)" srcset="assets/images/hp-law-website.png">
+                        <img aria-hidden="true" loading="lazy" decoding="async" src="assets/images/hp-law-website.png" alt="modern home at night" width="346" height="346">
+                    </picture>
+                    <div class="cs-item-text">
+                        <div class="cs-flex">
+                            <h3 class="cs-h3">Bradley</h3>
+                            <span class="cs-desc">This is Psychologist's Portfolio landing page UI header.</span>
+                        </div>
+                        <picture class="cs-icon-wrapper">
+                            <img class="cs-icon" decoding="async"
+                                            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/agency-arrow-upper-right.svg"
+                                            alt="arrow" width="413" height="374" aria-hidden="true">
+                        </picture>
+                    </div>
+                </a>
+            </li>
+            <!-- Card 4 -->
+           
+            <li class="cs-item">
+                <a href="/" class="cs-link">
+                    <picture class="cs-picture">
+                        <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/agency-portfolio-6.png">
+                        <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/agency-portfolio-6.png">
+                        <img aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/agency-portfolio-6.png" alt="modern home" width="346" height="346">
+                    </picture>
+                    <div class="cs-item-text">
+                        <div class="cs-flex">
+                            <h3 class="cs-h3">Listee</h3>
+                            <span class="cs-desc">A Business Directory Listing Website</span>
+                        </div>
+                        <picture class="cs-icon-wrapper">
+                            <img class="cs-icon" decoding="async"
+                                            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/agency-arrow-upper-right.svg"
+                                            alt="arrow" width="413" height="374" aria-hidden="true">
+                        </picture>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <a href="/" class="cs-button-solid">View All Works</a>
+    </div>
+    <div class="cs-bubbles" aria-hidden="true"></div>
+</section>
+                                
+
+   
+
+    <!-- ============================================ -->
+    <!--                   Reviews                    -->
+    <!-- ============================================ -->
+
+    <section id="reviews">
+        <div class="cs-container">
+            <span class="cs-topper">Our Reviews</span>
+            <h2 class="cs-title">Words From Our Customers</h2>
+            <p class="cs-text">
+                Our clients' success is our success. See how we've helped local
+                businesses achieve remarkable growth through proven marketing
+                solutions.
+            </p>
+            <ul class="cs-card-group">
+                <!-- Review 1 -->
+                <li class="cs-item">
+                    <img
+                        class="cs-item-img"
+                        aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile5.png"
+                        alt="profile picture"
+                        width="80"
+                        height="80"
+                    />
+                    <p class="cs-item-p">
+                        We’re a small plumbing company, and getting new clients
+                        used to be a struggle. Spark Social turned that around
+                        with their ad campaigns and SEO expertise. Calls are
+                        coming in daily now, and we’ve already expanded our
+                        team. If you’re looking for real results, this is the
+                        team to trust.
+                    </p>
+                    <span class="cs-reviewer">
+                        Jack P.,
+                        <span class="cs-desc"
+                            >Owner of Precision Plumbing Solutions</span
+                        >
+                    </span>
+                    <img
+                        class="cs-item-stars"
+                        aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/stars-yellow.svg"
+                        alt="stars"
+                        width="96"
+                        height="16"
+                    />
+                </li>
+                <!-- Review 2 -->
+                <li class="cs-item">
+                    <img
+                        class="cs-item-img"
+                        aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile-4.png"
+                        alt="profile picture"
+                        width="80"
+                        height="80"
+                    />
+                    <p class="cs-item-p">
+                        Partnering with Spark Social has been a game-changer for
+                        our family-owned restaurant. Their local marketing
+                        strategies filled our tables on weeknights, and their
+                        social media management brought in more customers than
+                        we ever imagined. They truly understand what small
+                        businesses need to thrive. Highly recommend!
+                    </p>
+                    <span class="cs-reviewer">
+                        Maria T.,
+                        <span class="cs-desc">Owner of Casa Bella Bistro</span>
+                    </span>
+                    <img
+                        class="cs-item-stars"
+                        aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/stars-yellow.svg"
+                        alt="stars"
+                        width="96"
+                        height="16"
+                    />
+                </li>
+            </ul>
+            <a
+                aria-label="read more reviews"
+                href="/reviews"
+                class="cs-button-solid"
+                >Our Reviews</a
+            >
+        </div>
+    </section>
+
+    {% include 'components/cta.html' %}
+{% endblock %}

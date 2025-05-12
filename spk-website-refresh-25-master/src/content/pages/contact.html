@@ -1,0 +1,925 @@
+---
+title: "Contact | Spark Social Media Agency"
+description: "Meta description for the page"
+preloadImg: "/assets/images/cabinets2.jpg"
+permalink: "contact/"
+eleventyNavigation:
+key: Schedule a Call
+order: 600
+hideOnDesktop: true
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/assets/css/contact.css" />
+<!-- Add Quiz Styles -->
+<style>
+    /* Quiz Specific Styles */
+
+
+    .quiz-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem;
+        margin: 1rem auto;
+        box-sizing: border-box;
+
+
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        /* Ensure proper positioning */
+    }
+
+
+
+
+    /* Add this to ensure parent container allows centering */
+    #quiz-form {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+
+
+    .progress-bar {
+        height: 4px;
+        background: #eee;
+        margin-bottom: 2rem;
+        border-radius: 2px;
+    }
+
+    .progress {
+        height: 100%;
+        background: #00e6c3;
+        width: 0;
+        transition: width 0.3s ease;
+    }
+
+    .step {
+        width: 100% !important;
+        height: auto;
+        min-height: 300px;
+        padding: 1rem;
+        box-sizing: border-box;
+        display: none;
+    }
+
+    /* Add min-height only for multiple choice steps */
+.step:not(.input-step) {
+  min-height: 300px;
+}
+
+/* Adjust button positioning for input steps */
+.input-step .buttons {
+  margin-top: 8rem;  /* Increased spacing after input */
+  position: relative;
+  top: 0;
+  transform: none;
+}
+
+    .step h2 {
+        font-size: 1.2rem;
+        line-height: 1.3;
+        margin-bottom: 1.5rem;
+        padding: 0 0.5rem;
+
+        display: flex;
+        justify-content: center;
+        /* Centers buttons horizontally */
+
+
+
+    }
+
+    .step.active {
+        display: block;
+
+    }
+
+    .options {
+
+        margin: 1.5rem 0;
+
+    }
+
+    .option {
+        width: 100%;
+        box-sizing: border-box;
+
+
+
+
+        font-size: 0.9rem;
+        padding: 1rem;
+        display: block;
+        /* padding: 1rem; */
+        margin: 0.5rem 0;
+        background: #f8f9fa;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .option.selected {
+        background: #00e6c3;
+        color: white;
+    }
+
+    .buttons {
+        /* flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1.5rem; */
+
+        display: flex;
+        justify-content: center;
+        /* Centers buttons horizontally */
+        gap: 1rem;
+        /* Optional: Adds spacing between buttons */
+        margin-top: 1rem;
+        /* Optional: Adds spacing from content above */
+
+        /* display: flex;
+        gap: 1rem;
+        margin-top: 2rem; */
+    }
+
+    .quiz-container input {
+
+        /* text-align: center; */
+        /* display: block; */
+
+        /* width: 100%; */
+
+        /* padding: 1rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.2s ease; */
+
+
+        display: block;
+    width: 80%; /* Adjust this value as needed */
+    margin: 0 auto; /* This centers the element horizontally */
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    }
+
+    .quiz-container input:focus {
+        border-color: #00e6c3;
+        outline: none;
+    }
+
+    .quiz-container button {
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+
+
+    }
+
+    .next-btn {
+        background: #400061;
+        color: white;
+    }
+
+    .prev-btn {
+        background: #6c757d;
+        color: white;
+    }
+
+    .quiz-container textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 1rem 0;
+        min-height: 120px;
+    }
+
+    .options input[type="radio"] {
+        display: none;
+    }
+
+
+    .result {
+        display: none;
+        text-align: center;
+    }
+
+    .result h2 {
+        color: #2d3748;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .result p {
+        color: #4a5568;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+
+    .hidden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+</style>
+
+{% endblock %}
+
+{% block body %}
+<!-- ============================================ -->
+<!--                   CONTACT FORM                    -->
+<!-- ============================================ -->
+<section id="contact-1700">
+    <div class="cs-container">
+        <div class="cs-content">
+            <div class="desktop-content">
+                <span class="cs-topper">Local Business Growth Experts</span>
+                <h2 class="cs-title">Scale With Confidence</h2>
+                <p class="cs-text">
+                    In today's AI-driven marketplace, local service businesses
+                    need more than just basic digital marketing. Our proven
+                    methodology combines advanced analytics, hyperlocal
+                    targeting, and personalized automation to deliver measurable
+                    ROI.
+                    <br />
+                    <br />
+                    As your strategic growth partner, we'll create a
+                    customized digital strategy that captures high-intent local
+                    customers and builds lasting market dominance. Our track
+                    record includes transforming over 50 local service
+                    businesses, achieving an average 247% increase in qualified
+                    leads within the first 90 days.
+                </p>
+                <div class="cs-author">
+                    <picture class="cs-profile">
+                        <img src=" /assets/images/profile-headshot.jpeg" alt="profile" width="35" height="40"
+                            loading="lazy" decoding="async" aria-hidden="true" />
+                    </picture>
+                    <div class="cs-flex-group">
+                        <img class="cs-signature"
+                            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/enterprise-signature.png"
+                            alt="founder's signature" height="52" width="52" loading="lazy" decoding="async" />
+                        <span class="cs-job">Founder of Spark Social</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Form-->
+
+
+        <!-- ============================================ -->
+        <!--                   QUIZ FORM                 -->
+        <!-- ============================================ -->
+
+        <form class="cs-form" id="cs-form-1700" name="contact" method="POST" data-netlify="true"
+            netlify-honeypot="bot-field">
+ <!-- Hidden honeypot field -->
+            <p class="hidden">
+                <label>
+                    Don’t fill this out if you’re human: <input name="bot-field" />
+                </label>
+            </p>
+
+              <!-- Hidden field to force submission title -->
+  <input type="hidden" name="name" id="submission-title" value="Default Title">
+
+
+
+            <div class="cs-content">
+                <span class="cs-topper">Take The Next Step</span>
+                <h2 class="cs-title">Get Your Free Marketing Proposal</h2>
+            </div>
+            <section id="quiz-form">
+                <div class="quiz-container">
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div class="step active" data-step="1">
+                        <h2>What's your primary marketing goal?</h2>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="goal" value="brand-awareness">
+                                Increase Brand Awareness
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="goal" value="lead-generation">
+                                Generate More Leads
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="goal" value="customer-retention">
+                                Improve Customer Retention
+                            </label>
+                        </div>
+                        <div class="buttons">
+                            <button class="prev-btn" type="button" disabled>Previous</button>
+                            <button class="next-btn" type="button">Next</button>
+                        </div>
+                    </div>
+  <!-- Step 2 -->
+                    <div class="step " data-step="2">
+                        <h2>What's your biggest marketing challenge?</h2>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="challenge" value="brand-awareness">
+                                Limited Budget
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="challenge" value="lead-generation">
+                                Lack of Time
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="challenge" value="customer-retention">
+                                Lack of Expertise
+                            </label>
+                        </div>
+                        <div class="buttons">
+                            <button type="button" class="prev-btn">Previous</button>
+                            <button type="button" class="next-btn">Next</button>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="step input-step" data-step="3">
+                        <h2>What’s your company name?</h2>
+                        <input placeholder="Company name" id="company-name" name="company-name" />
+                        <div class="buttons">
+                            <button type="button" class="prev-btn">Previous</button>
+                            <button type="button" class="next-btn">Next</button>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="step input-step" data-step="4">
+                        <h2>What’s your company website?</h2>
+                        <input placeholder="company website" id="company-website" name="company-website" />
+                        <div class="buttons">
+                            <button type="button" class="prev-btn">Previous</button>
+                            <button type="button" class="next-btn">Next</button>
+                        </div>
+                    </div>
+
+  <!-- Step 5 -->
+                    <div class="step " data-step="5">
+                        <h2>What’s your company size?</h2>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="size" value="1-5 employees (small)">
+                                1-5 employees
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="size" value="5-10 employees (medium)">
+                                5-10 employees
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="size" value="10+ employees (large)">
+                                10+ employees
+                            </label>
+                        </div>
+                        <div class="buttons">
+                            <button class="prev-btn" type="button" disabled>Previous</button>
+                            <button type="button" class="next-btn">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="step input-step" data-step="6">
+                        <h2>Your Name:</h2>
+                        <input placeholder="Your name" id="user-name" name="user-name" />
+                        <div class="buttons">
+                            <button type="button" class="prev-btn">Previous</button>
+                            <button type="button" class="next-btn">Next</button>
+                        </div>
+                    </div>
+                    <!-- Step 7 -->
+                    <div class="step input-step" data-step="7">
+                        <h2>Your Phone Number:</h2>
+                        <input placeholder="Your phone" id="user-phone" name="user-phone" />
+                        <div class="buttons">
+                            <button type="button" class="prev-btn">Previous</button>
+                            <button type="submit" class="next-btn">Next</button>
+                        </div>
+                    </div>
+
+
+                    <!-- Results -->
+                    <div class="result">
+                        <h2>Thank You!</h2>
+                        <p>We'll use this information to create your personalized proposal.</p>
+                        <div id="answers-summary"></div>
+                    </div>
+                </div>
+            </section>
+
+
+            <picture class="cs-background">
+                <!--Mobile Image-->
+                <source media="(max-width: 600px)" srcset="
+            ../assets/images/contact-hero-form.jpeg
+            " />
+                <!--Tablet and above Image-->
+                <source media="(min-width: 601px)" srcset="
+            ../assets/images/contact-hero-form.jpeg
+            " />
+                <img loading="lazy" decoding="async" src="../assets/images/contact-hero-form.jpeg" alt="wind turbine"
+                    width="650" height="613" />
+            </picture>
+        </form>
+    </div>
+</section>
+
+
+<!-- ============================================ -->
+<!--                  OUR SERVICES                   -->
+<!-- ============================================ -->
+
+<section id="services-1629">
+    <div class="cs-container">
+        <div class="cs-content">
+            <div class="cs-flex">
+                <span class="cs-topper">Our Services</span>
+                <h2 class="cs-title">
+                    What We Do for Your Business
+                </h2>
+            </div>
+            <p class="cs-text">
+                Plumbers, salons, and contractors trust us because we speak their language. Need a website that doesn’t
+                embarrass you? SEO that shows up in local searches? Ads that only pay for nearby clicks? We’ll explain
+                your options in plain English—no pressure, just honest advice.
+            </p>
+        </div>
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <picture class="cs-picture">
+                    <img class="cs-icon" src="../assets/svgs/purple-website.svg" loading="lazy" decoding="async"
+                        alt="icon" width="32" height="32" aria-hidden="true" />
+                </picture>
+                <!-- Text Grouped For Flexbox-->
+                <div class="cs-text-group">
+                    <h3 class="cs-h3">Website Design</h3>
+                    <p class="cs-item-text">
+                        Build a strong online presence with custom, SEO-optimized websites. Our designs are tailored to
+                        enhance user experience and drive conversions. We ensure your site looks great on all devices.
+                    </p>
+                </div>
+            </li>
+            <li class="cs-item">
+                <picture class="cs-picture">
+                    <img class="cs-icon" src="../assets/svgs/purple-dollar-sign.svg" loading="lazy" decoding="async"
+                        alt="icon" width="32" height="32" aria-hidden="true" />
+                </picture>
+                <!-- Text Grouped For Flexbox-->
+                <div class="cs-text-group">
+                    <h3 class="cs-h3">Pay-Per-Click Advertising</h3>
+                    <p class="cs-item-text">
+                        We welcome and celebrate different perspectives to
+                        help our firm, our clients and our people adip
+                        iscing elit achieve.
+                    </p>
+                </div>
+            </li>
+            <li class="cs-item">
+                <picture class="cs-picture">
+                    <img class="cs-icon" src="../assets/svgs/purple-chat.svg" loading="lazy" decoding="async" alt="icon"
+                        width="32" height="32" aria-hidden="true" />
+                </picture>
+                <!-- Text Grouped For Flexbox-->
+                <div class="cs-text-group">
+                    <h3 class="cs-h3">Social Media Marketing</h3>
+                    <p class="cs-item-text">
+                        We welcome and celebrate different perspectives to
+                        help our firm, our clients and our people adip
+                        iscing elit achieve.
+                    </p>
+                </div>
+            </li>
+            <li class="cs-item">
+                <picture class="cs-picture">
+                    <img class="cs-icon" src="../assets/svgs/purple-bullhorn.svg" loading="lazy" decoding="async"
+                        alt="icon" width="32" height="32" aria-hidden="true" />
+                </picture>
+                <!-- Text Grouped For Flexbox-->
+                <div class="cs-text-group">
+                    <h3 class="cs-h3">Content Marketing</h3>
+                    <p class="cs-item-text">
+                        We welcome and celebrate different perspectives to
+                        help our firm, our clients and our people adip
+                        iscing elit achieve.
+                    </p>
+                </div>
+            </li>
+            <li class="cs-item">
+                <picture class="cs-picture">
+                    <img class="cs-icon" src="../assets/svgs/purple-email.svg" loading="lazy" decoding="async"
+                        alt="icon" width="32" height="32" aria-hidden="true" />
+                </picture>
+                <!-- Text Grouped For Flexbox-->
+                <div class="cs-text-group">
+                    <h3 class="cs-h3">Email Marketing</h3>
+                    <p class="cs-item-text">
+                        We welcome and celebrate different perspectives to
+                        help our firm, our clients and our people adip
+                        iscing elit achieve.
+                    </p>
+                </div>
+            </li>
+            <li class="cs-item">
+                <picture class="cs-picture">
+                    <img class="cs-icon" src="../assets/svgs/purple-chart.svg" loading="lazy" decoding="async"
+                        alt="icon" width="32" height="32" aria-hidden="true" />
+                </picture>
+                <!-- Text Grouped For Flexbox-->
+                <div class="cs-text-group">
+                    <h3 class="cs-h3">Search Engine Optimization</h3>
+                    <p class="cs-item-text">
+                        We welcome and celebrate different perspectives to
+                        help our firm, our clients and our people adip
+                        iscing elit achieve.
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <a href="" class="cs-button-solid">View All Services</a>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--                   Reviews Section                    -->
+<!-- ============================================ -->
+
+<section id="reviews-1395">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Testimonials</span>
+            <h2 class="cs-title">
+                Happy Client’s Feedback About Our Service
+            </h2>
+        </div>
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <!--Blue Quote-->
+                <img class="cs-quote" aria-hidden="true" src="../assets/svgs/blue-quotes.svg" decoding="async"
+                    alt="quote icon" width="120" height="99" />
+                <p class="cs-item-text">
+                    Small businesses are the heartbeat of communities,
+                    embodying the spirit of entrepreneurship, determination,
+                    and local support.
+                </p>
+                <div class="cs-flex-group">
+                    <picture class="cs-picture">
+                        <img class="cs-profile" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile2.jpg"
+                            decoding="async" alt="profile" width="50" height="50" aria-hidden="true" />
+                    </picture>
+                    <span class="cs-name">
+                        Britney Allison
+                        <span class="cs-job">Founder Of Yokoloko</span>
+                    </span>
+                </div>
+            </li>
+            <li class="cs-item">
+                <!--Blue Quote-->
+                <img class="cs-quote" aria-hidden="true" src="../assets/svgs/blue-quotes.svg" decoding="async"
+                    alt="quote icon" width="120" height="99" />
+                <p class="cs-item-text">
+                    I want to say a huge thank you to the Stitch team. The
+                    guys in a short time and very efficiently helped me with
+                    the development of a website for my new startup.
+                </p>
+                <div class="cs-flex-group">
+                    <picture class="cs-picture">
+                        <img class="cs-profile" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile3.png"
+                            decoding="async" alt="profile" width="50" height="50" aria-hidden="true" />
+                    </picture>
+                    <span class="cs-name">
+                        Jessica Jonson
+                        <span class="cs-job">CTO Of Meriette</span>
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- ============================================ -->
+<!--                  Services                    -->
+<!-- ============================================ -->
+
+<section id="services-1282">
+    <div class="cs-container">
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <h3 class="cs-h3">
+                    <picture class="cs-picture">
+                        <img class="cs-icon" aria-hidden="true" src="../assets/svgs/purple-speed.svg" alt="svg icon"
+                            width="37" height="29" loading="lazy" decoding="async">
+                    </picture>
+                    Blazing Speed
+                </h3>
+                <span class="cs-number">1.3s Load Time</span>
+                <p class="cs-item-text">
+                    Websites faster than 97% of local competitors – keeps mobile users from bouncing.
+                </p>
+            </li>
+            <li class="cs-item">
+                <h3 class="cs-h3">
+                    <picture class="cs-picture">
+                        <img class="cs-icon" aria-hidden="true" src="../assets/svgs/purple-lock.svg" alt="svg icon"
+                            width="37" height="29" loading="lazy" decoding="async">
+                    </picture>
+                    Bulletproof Security
+                </h3>
+                <span class="cs-number">200+ Protected</span>
+                <p class="cs-item-text">
+                    Zero hacked sites since 2023. Sleep easy knowing your site’s safe.
+                </p>
+            </li>
+            <li class="cs-item">
+                <h3 class="cs-h3">
+                    <picture class="cs-picture">
+                        <img class="cs-icon" aria-hidden="true" src="../assets/svgs/purple-pin.svg" alt="svg icon"
+                            width="37" height="29" loading="lazy" decoding="async">
+                    </picture>
+                    Local Focus
+                </h3>
+                <span class="cs-number">12+ Niches</span>
+                <p class="cs-item-text">
+                    We speak contractor, salon, and HVAC – not generic corporate jargon.
+                </p>
+            </li>
+
+        </ul>
+    </div>
+
+</section>
+<!-- ============================================ -->
+<!--                 BLOG RECENT POSTS                -->
+<!-- ============================================ -->
+
+<section id="blog-1347">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Insights to Help Your Local Business Grow</span>
+            <h2 class="cs-title">
+                Your Guide to Smarter Marketing for Local Businesses
+            </h2>
+            <p class="cs-text">
+                Stay ahead with expert insights! From web design to local SEO, our blog offers tips to grow your
+                business. Explore our popular posts below and see how we can help you succeed.
+            </p>
+        </div>
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <a class="cs-link" href="/">
+                    <picture class="cs-picture">
+                        <source media="(max-width: 600px)" srcset="
+                                ../assets/images/blog-feat.jpg
+                                " />
+                        <source media="(min-width: 601px)" srcset="
+                                ../assets/images/blog-feat.jpg
+                                " />
+                        <img decoding="async" src="
+                                ../assets/images/blog-feat.jpg
+                                " alt="agency" width="413" height="374" aria-hidden="true" />
+                    </picture>
+                    <div class="cs-item-text">
+                        <h3 class="cs-h3">
+                            Digital check list are you prepared for new
+                            year?
+                            <picture class="cs-icon-wrapper">
+                                <img class="cs-icon" decoding="async"
+                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/agency-arrow-upper-right.svg"
+                                    alt="arrow" width="413" height="374" aria-hidden="true" />
+                            </picture>
+                        </h3>
+                        <div class="cs-info">
+                            <span class="cs-date">
+                                <img class="cs-date-icon" decoding="async" src="../assets/svgs/purple-calendar.svg"
+                                    alt="calendar" width="413" height="374" aria-hidden="true" />
+                                07 Sep, 2022
+                            </span>
+                            <span class="cs-category"> Ecommerce </span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="cs-item">
+                <a class="cs-link" href="/">
+                    <picture class="cs-picture">
+                        <source media="(max-width: 600px)" srcset="
+                                ../assets/images/blog-01.jpg
+                                " />
+                        <source media="(min-width: 601px)" srcset="
+                                ../assets/images/blog-01.jpg
+                                " />
+                        <img decoding="async" src="  ../assets/images/blog-01.jpg" alt="agency" width="413" height="374"
+                            aria-hidden="true" />
+                    </picture>
+                    <div class="cs-item-text">
+                        <h3 class="cs-h3">
+                            Writing wordPress guides for beginner
+                            <picture class="cs-icon-wrapper">
+                                <img class="cs-icon" decoding="async"
+                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/agency-arrow-upper-right.svg"
+                                    alt="arrow" width="413" height="374" aria-hidden="true" />
+                            </picture>
+                        </h3>
+                        <div class="cs-info">
+                            <span class="cs-date">
+                                <img class="cs-date-icon" decoding="async" src="../assets/svgs/purple-calendar.svg"
+                                    alt="calendar" width="413" height="374" aria-hidden="true" />
+                                07 Sep, 2022
+                            </span>
+                            <span class="cs-category"> Ecommerce </span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="cs-item">
+                <a class="cs-link" href="/">
+                    <picture class="cs-picture">
+                        <source media="(max-width: 600px)" srcset="
+                                      ../assets/images/blog-02.jpg
+                                " />
+                        <source media="(min-width: 601px)" srcset="
+                                ../assets/images/blog-02.jpg
+                                " />
+                        <img decoding="async" src=" ../assets/images/blog-02.jpg" alt="agency" width="413" height="374"
+                            aria-hidden="true" />
+                    </picture>
+                    <div class="cs-item-text">
+                        <h3 class="cs-h3">
+                            Get a few solutions to hire a best candidate
+                            <picture class="cs-icon-wrapper">
+                                <img class="cs-icon" decoding="async"
+                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/agency-arrow-upper-right.svg"
+                                    alt="arrow" width="413" height="374" aria-hidden="true" />
+                            </picture>
+                        </h3>
+                        <div class="cs-info">
+                            <span class="cs-date">
+                                <img class="cs-date-icon" decoding="async" src="../assets/svgs/purple-calendar.svg"
+                                    alt="calendar" width="413" height="374" aria-hidden="true" />
+                                07 Sep, 2022
+                            </span>
+                            <span class="cs-category">
+                                Digital Agency
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="cs-bubbles" aria-hidden="true"></div>
+</section>
+
+<!-- Subheadline -->
+
+<!-- form  -->
+
+<!-- trust  -->
+
+<!-- FAQ Section  -->
+
+<!-- ============================================ -->
+<!--                Benefits/Why Choose Us        -->
+<!-- ============================================ -->
+
+<!-- ============================================ -->
+<!--                Trust Signal                  -->
+<!-- ============================================ -->
+
+<!-- ============================================ -->
+<!--                Call to action                  -->
+<!-- ============================================ -->
+
+<!-- ============================================ -->
+<!--                FAQ                 -->
+<!-- ============================================ -->
+
+<!-- ============================================ -->
+<!--                Closing CTA                  -->
+<!-- ============================================ -->
+<!-- Add JavaScript at the bottom of the page -->
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const quizData = {
+            goal: null,
+            challenge: null,
+            "company-name": null,
+            "company-website": null,
+            size: null,
+            'user-name': null,
+            'user-phone': null   // note capital “P”
+        };
+        const steps = Array.from(document.querySelectorAll('.step'));
+        const progressBar = document.querySelector('.progress');
+        const resultSection = document.querySelector('.result');
+        const form = document.getElementById('cs-form-1700');
+
+        let currentStep = 1;
+        const totalSteps = steps.length; // or 7
+
+        function updateProgress() {
+            const pct = ((currentStep - 1) / totalSteps) * 100;
+            progressBar.style.width = pct + '%';
+        }
+
+        function showCurrentStep() {
+            steps.forEach(s => s.classList.toggle('active', +s.dataset.step === currentStep));
+        }
+
+        function captureData(step) {
+            switch (step) {
+                case 1:
+                    quizData.goal = document.querySelector('input[name="goal"]:checked')?.value;
+                    break;
+                case 2:
+                    quizData.challenge = document.querySelector('input[name="challenge"]:checked')?.value;
+                    break;
+                case 3:
+                    quizData["company-name"] = document.getElementById('company-name').value;
+                    break;
+                case 4:
+                    quizData["company-website"] = document.getElementById('company-website').value;
+                    break;
+                case 5:
+                    quizData.size = document.querySelector('input[name="size"]:checked')?.value;
+                    break;
+                case 6:
+                    quizData["user-name"] = document.getElementById('user-name').value;
+                    break;
+                case 7:
+                    quizData["user-phone"]= document.getElementById('user-phone').value;
+                    break;
+            }
+        }
+
+        // ——— Next buttons ———
+        document.querySelectorAll('.next-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                captureData(currentStep);
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateProgress();
+                    showCurrentStep();
+                } else {
+                    // Final step: show results (or trigger form submit)
+                    steps.forEach(s => s.style.display = 'none');
+                    progressBar.style.width = '100%';
+                    resultSection.style.display = 'block';
+                    console.log('Quiz Responses:', quizData);
+                    document.getElementById('submission-title').value = quizData["company-name"] || "No Company Name Provided";
+                    form.submit();
+                }
+            });
+        });
+
+        // ——— Prev buttons ———
+        document.querySelectorAll('.prev-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                if (currentStep > 1) {
+                    currentStep--;
+                    updateProgress();
+                    showCurrentStep();
+                }
+            });
+        });
+
+        // ——— Radio “selected” styling ———
+        document.querySelectorAll('.options input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function () {
+                document.querySelectorAll(`input[name="${this.name}"]`)
+                    .forEach(r => r.closest('.option').classList.remove('selected'));
+                this.closest('.option').classList.add('selected');
+            });
+        });
+
+
+
+        // ——— Init ———
+        updateProgress();
+        showCurrentStep();
+    });
+</script>
+
+{% endblock %}
