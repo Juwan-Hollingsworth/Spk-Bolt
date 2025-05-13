@@ -819,155 +819,92 @@
 /*-- -------------------------- -->
 <---          Services          -->
 <--- -------------------------- -*/
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-  #services-1282 {
-    position: relative;
-    padding: var(--sectionPadding);
-    z-index: 1;
-  }
-  #services-1282 .cs-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    /* changes to 1280px on tablet */
-    max-width: 34.375rem;
-    width: 100%;
-    /* 48px - 64px */
-    gap: clamp(3rem, 6vw, 4rem);
-  }
-  #services-1282 .cs-content {
-    /* set text align to left if content needs to be left aligned */
-    text-align: left;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    /* centers content horizontally, set to flex-start to left align */
-    align-items: flex-start;
-    height: 500px;
-  }
-  #services-1282 .cs-flex-group {
-    /* prevents flexbox from squishing it */
-    flex: none;
-  }
-  #services-1282 .cs-text {
-    max-width: 39.375rem;
-  }
-  #services-1282 .cs-card-group {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    gap: 1.25rem;
-  }
-  #services-1282 .cs-item {
-    border-radius: 1rem;
-    margin-left: 0;
-    background-color: #fff;
-    width: 100%;
-    box-sizing: border-box;
-    /* 20px - 24px */
-    padding: clamp(1.25rem, 2.4vw, 1.5rem);
-    list-style: none;
-    box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.1);
-  }
-  #services-1282 .cs-h3 {
-    font-size: 1.25rem;
-    line-height: 1.2em;
-    margin: 0 0 1.25rem 0;
-    color: var(--headerColor);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  #services-1282 .cs-picture {
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 50%;
-    background-color: var(--primaryLight);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #services-1282 .cs-icon {
-    height: 0.75rem;
-    width: auto;
-  }
-  #services-1282 .cs-number {
-    display: block;
-    margin: 0 0 0.75rem 0;
-    font-size: 1.5625rem;
-    font-weight: 700;
-    color: var(--primary);
-  }
-  #services-1282 .cs-item-text {
-    margin: 0;
-    font-size: 0.875rem;
-    line-height: 1.5em;
-    color: var(--bodyTextColor);
-  }
-  #services-1282 .cs-background {
-    z-index: -1;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 65%;
-    width: 100%;
-  }
-  #services-1282 .cs-background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+/* Enhanced Service Cards Styling */
+#services-1282 .cs-card-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  padding: 2rem 0;
 }
-/* In Between - 500px */
-@media only screen and (min-width: 31.25rem) {
-  #services-1282 .cs-card-group {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  #services-1282 .cs-background {
-    height: 55%;
-  }
+
+#services-1282 .cs-item {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem;
 }
+
+#services-1282 .cs-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: transparent;
+}
+
+#services-1282 .cs-h3 {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#services-1282 .cs-picture {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--primaryLight);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+#services-1282 .cs-item:hover .cs-picture {
+  background: var(--primary);
+}
+
+#services-1282 .cs-item:hover .cs-icon {
+  filter: brightness(100);
+}
+
+#services-1282 .cs-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0.5rem 0;
+  display: block;
+}
+
+#services-1282 .cs-item-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--bodyTextColor);
+  margin: 0;
+  opacity: 0.9;
+}
+
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-  #services-1282 .cs-container {
-    max-width: 80rem;
-  }
-  #services-1282 .cs-content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 3rem;
-  }
-  #services-1282 .cs-flex-group {
-    width: 50%;
-  }
-  #services-1282 .cs-title {
-    margin: 0;
+  #services-1282 .cs-card-group {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
+
 /* Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
   #services-1282 .cs-card-group {
     grid-template-columns: repeat(3, 1fr);
   }
-  #services-1282 .cs-background {
-    top: 0;
-    left: auto;
-    right: 50%;
-    /* 90px - 225px */
-    margin-right: clamp(5.625rem, 15vw, 14.0625rem);
-    height: 100%;
-    width: 50vw;
+  
+  #services-1282 .cs-item {
+    padding: 3rem;
   }
 }
 /*-- -------------------------- -->
