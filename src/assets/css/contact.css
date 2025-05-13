@@ -1228,4 +1228,19 @@
   }
 }
 
+/* desktop content  */
+
+/* Mobile - Hide desktop content by default */
+.desktop-content {
+  display: none;
+}
+
+/* Tablet and above - Show desktop content */
+@media only screen and (min-width: 768px) {
+  .desktop-content {
+    display: block;
+  }
+}
+
+
 /*# sourceMappingURL=contact.css.map */
