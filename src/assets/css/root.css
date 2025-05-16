@@ -828,6 +828,63 @@
     background-color: var(--primaryLight);
   }
 }
+
+
+/* extra  */
+/* Mobile - Hide desktop content by default */
+.desktop-content {
+  display: none;
+}
+
+/* Tablet and above - Show desktop content */
+@media only screen and (min-width: 768px) {
+  .desktop-content {
+    display: block;
+  }
+}
+
+/* Add these new styles for the dropdown wrapper */
+.cs-dropdown-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.cs-dropdown-button {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cs-dropdown-button[aria-expanded="true"] .cs-drop-icon {
+    transform: rotate(180deg);
+}
+
+.cs-drop-icon {
+    transition: transform 0.3s ease;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 1023px) {
+    .cs-dropdown-wrapper {
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .cs-drop-ul {
+        display: none;
+    }
+    
+    .cs-drop-ul.active {
+        display: block;
+    }
+}
 /*-- -------------------------- -->
 <---   Interior Page Header     -->
 <--- -------------------------- -*/
