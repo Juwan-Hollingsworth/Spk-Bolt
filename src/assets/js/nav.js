@@ -86,7 +86,31 @@ dropdownElements.forEach((element) => {
     // Handles dropdown menus on mobile - the matching media query (max-width: 63.9375rem) is necessary so that clicking the dropdown button on desktop does not add the active class and thus interfere with the hover state
     const maxWidthMediaQuery = window.matchMedia("(max-width: 63.9375rem)");
     if (maxWidthMediaQuery.matches) {
-        element.addEventListener("click", () => toggleDropdown(element));
+        // Fix: Separate click handlers for dropdown button and parent link
+        const dropdownButton = element.querySelector(".cs-dropdown-button");
+        const dropdownIcon = element.querySelector(".cs-drop-icon");
+        
+        if (dropdownButton && dropdownIcon) {
+            // Prevent the default behavior when clicking on the dropdown icon
+            dropdownIcon.addEventListener("click", function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                toggleDropdown(element);
+            });
+            
+            // Allow the dropdown button to navigate to its href when clicked directly
+            // but not when the dropdown icon is clicked
+            dropdownButton.addEventListener("click", function(event) {
+                // If the click was on the icon, it's already handled
+                if (event.target === dropdownIcon || dropdownIcon.contains(event.target)) {
+                    event.preventDefault();
+                    return;
+                }
+                
+                // Otherwise, let the link work normally
+                // No need to prevent default here
+            });
+        }
     }
 });
 
